@@ -1,13 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+/**
+ * main - Entry point
+ * Return: 0 (success)
+ */
 
 int main(void)
 {
 	int n;
 
 	srand(time(NULL));
-	n = rand();
+
+	n = rand() % 201 - 100;
 
 	if (n > 0)
 	{
@@ -18,9 +23,6 @@ int main(void)
 		printf("%d is zero\n", n);
 	}
 	else
-	{
 		printf("%d is negative\n", n);
-	}
-
 	return (0);
 }
