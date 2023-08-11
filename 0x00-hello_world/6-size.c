@@ -1,20 +1,20 @@
 #include <stdio.h>
 /**
- * main - entry point
- * Return: this should return 0(success)
+ * main - Entry point
+ * Return: Tthis should return 0(success)
  */
 int main(void)
 {
-	char a;
-	int b;
-	long int c;
-	long long int c;
-	float f;
+	char x;
+	int y;
+	long int z;
+	long long int i;
+	float j;
 
-	printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(a));
-	printf("Size of an int: %lu byte(s)\n", (unsigned long)sizeof(b));
-	printf("Size of a long int: %lu byte(s)\n", (unsigned long)sizeof(c));
-	printf("Size of a long long int: %lu byte(s)\n", (unsigned long)sizeof(d));
-	printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(f));
-	return(0);
+	printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(x));
+	printf("Size of an int: %lu byte(s)\n", (unsigned long)sizeof(y));
+	printf("Size of a long int: %lu byte(s)\n", (unsigned long)sizeof(z));
+	printf("Size of a long long int: %lu byte(s)\n", (unsigned long)sizeof(i));
+	printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(j));
+	return (0);
 }
