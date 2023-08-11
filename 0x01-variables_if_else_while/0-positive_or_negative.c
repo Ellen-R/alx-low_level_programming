@@ -12,7 +12,7 @@ int main(void)
 
 	srand(time(NULL));
 
-	n = rand() % 201 - 100;
+	n = rand() - RAND_MAX / 2;
 
 	if (n > 0)
 	{
