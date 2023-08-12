@@ -2,7 +2,7 @@
 #include <stdlin.h>
 
 /**
- * main - Entry point
+ * main - Entry point of the program
  * Return: 0 on success
  */
 
