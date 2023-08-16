@@ -15,7 +15,7 @@ int main(void)
 	{
 		if (j < 4000000 && (j % 2) == 0)
 		{
-			sum + =  j;
+			sum +=  j;
 		}
 		nxt = j + k;
 		j = k;
