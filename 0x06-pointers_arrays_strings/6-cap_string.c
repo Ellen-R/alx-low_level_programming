@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdbool.h> /* Include this for using 'bool' type*/
 
 /**
  * cap_string - Capitalizes all words of a string.
@@ -8,26 +7,31 @@
  */
 char *cap_string(char *str)
 {
-	bool new_word = true; /* To indicate the start of a new word*/
+	int i = 0;
 
-	while (*str != '\0')
+	while (str[i])
 	{
-		if (*str == ' ' || *str == '\t' || *str == '\n' || *str == ',' ||
-		    *str == ';' || *str == '.' || *str == '!' || *str == '?' ||
-		    *str == '"' || *str == '(' || *str == ')' || *str == '{' || *str == '}')
-		{
-			new_word = true;
-		}
-		else if (new_word && (*str >= 'a' && *str <= 'z'))
-		{
-			*str = *str - ('a' - 'A'); /* Convert to uppercase*/
-			new_word = false;
-		}
-		else
-		{
-			new_word = false;
-		}
-		str++;
+		while (!(str[i] >= 'a' && str[i] <= 'z'))
+			i++;
+
+		if (str[i - 1] == ' ' ||
+		    str[i - 1] == '\t' ||
+		    str[i - 1] == '\n' ||
+		    str[i - 1] == ',' ||
+		    str[i - 1] == ';' ||
+		    str[i - 1] == '.' ||
+		    str[i - 1] == '!' ||
+		    str[i - 1] == '?' ||
+		    str[i - 1] == '"' ||
+		    str[i - 1] == '(' ||
+		    str[i - 1] == ')' ||
+		    str[i - 1] == '{' ||
+		    str[i - 1] == '}' ||
+		    i == 0)
+			str[i] -= 32;
+
+		i++;
 	}
+
 	return (str);
 }
