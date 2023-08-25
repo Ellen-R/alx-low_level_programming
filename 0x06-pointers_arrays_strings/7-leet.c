@@ -1,39 +1,26 @@
 #include "main.h"
 /**
  * leet - encode into 1337speak
- * @str: input value
+ * @n: input value
  * Return: n value
  */
-char *leet(char *str)
+char *leet(char *n)
 {
 	int i;
 	int j;
+	char arr1[] = "aAeEoOtTlL";
+	char arr2[] = "4433007711";
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; n[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 10; j++)
 		{
-			if ((str[i] == 'a' || str[i] == 'A') && (j == 0))
+			if (n[i] == arr1[j])
 			{
-				str[i] = '4';
-			}
-			else if ((str[i] == 'e' || str[i] == 'E') && (j == 1))
-			{
-				str[i] = '3';
-			}
-			else if ((str[i] == 'o' || str[i] == 'O') && (j == 2))
-			{
-				str[i] = '0';
-			}
-			else if ((str[i] == 't' || str[i] == 'T') && (j == 3))
-			{
-				str[i] = '7';
-			}
-			else if ((str[i] == 'l' || str[i] == 'L') && (j == 4))
-			{
-				str[i] = '1';
+				n[i] = arr2[j];
 			}
 		}
 	}
-	return (str);
+	return (n);
 }
+

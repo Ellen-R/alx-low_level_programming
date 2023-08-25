@@ -3,35 +3,29 @@
 
 /**
  * rot13 - encoder rot13
- * @str: pointer to string params
+ * @s: pointer to string params
  *
- * Return: string
+ * Return: *s
  */
-char *rot13(char *str)
+
+char *rot13(char *s)
 {
 	int i;
 	int j;
-	char base;
+	char arr1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char arr2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < 2; j++)
+		for (j = 0; j < 52; j++)
 		{
-			base = 'a'; /* Base character to adjust lowercase and uppercase letters*/
-
-			if (j == 1)
+			if (s[i] == arr1[j])
 			{
-				base = 'A';
-			}
-			if (str[i] >= base && str[i] < base + 13)
-			{
-				str[i] = str[i] + 13;
-			}
-			else if (str[i] >= base + 13 && str[i] <= base + 25)
-			{
-				str[i] = str[i] - 13;
+				s[i] = arr2[j];
+				break;
 			}
 		}
 	}
-	return (str);
+	return (s);
 }
+
