@@ -19,6 +19,6 @@ char *_memset(char *s, char b, unsigned int n)
 		n--;   /* Decrement the remaining count of bytes */
 	}
 
-	return (original_s); /* Return the original pointer */
+	return original_s; /* Return the original pointer */
 }
 
