@@ -5,34 +5,25 @@
  * @accept: input
  * Return: Always 0 (Success)
  */
-
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count = 0;
-	int found;
+	unsigned int i = 0;
+	int j;
 
 	while (*s)
 	{
-		found = 0;
-
-		while (*accept)
+		for (j = 0; accept[j]; j++)
 		{
-			if (*s == *accept)
+			if (*s == accept[j])
 			{
-				found = 1;
-				count++;
+				i++;
 				break;
 			}
-			accept++;
+			else if (accept[j + 1] == '\0')
+				return (i);
 		}
-
-		if (found == 0)
-			break;
-
 		s++;
-		accept = accept - count;
 	}
-
-	return (count);
+	return (i);
 }
 
