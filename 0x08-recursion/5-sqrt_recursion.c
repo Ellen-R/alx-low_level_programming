@@ -1,41 +1,22 @@
 #include "main.h"
 
 /**
- * find_sqrt - Helper function to find the square root using binary search
- * @n: The number for which to find the square root
- * @start: The starting point for binary search
- * @end: The ending point for binary search
+ * actual_sqrt_recursion - recurses to find the natural
+ * square root of a number
+ * @n: number to calculate the sqaure root of
+ * @i: iterator
  *
- * This recursive helper function uses binary search to find the square root
- * of a given number 'n' in the range between 'start' and 'end'.
- *
- * Return: The square root of 'n' if found, otherwise -1
+ * Return: the resulting square root
  */
-int find_sqrt(int n, int start, int end)
+int find_sqrt(int n, int i)
 {
-	int mid = (start + end) / 2; /* Calculate the midpoint */
-	int mid_squared = mid * mid; /* Calculate the square of the midpoint */
+	int mid_square = i * i;
 
-	/* If start becomes greater than end, square root not found */
-	if (start > end)
-	{
+	if (mid_square > n)
 		return (-1);
-	}
-
-	if (mid_squared == n)
-	{
-		return (mid); /* Midpoint is the square root */
-	}
-	else if (mid_squared > n)
-	{
-		/* Search the left half of the range */
-		return (find_sqrt(n, start, mid - 1));
-	}
-	else
-	{
-		/* Search the right half of the range */
-		return (find_sqrt(n, mid + 1, end));
-	}
+	if (mid_square == n)
+		return (i);
+	return (find_sqrt(n, i + 1));
 }
 
 /**
@@ -53,6 +34,6 @@ int _sqrt_recursion(int n)
 	{
 		return (-1); /* Negative numbers don't have a natural sqrt*/
 	}
-	return (find_sqrt(n, 0, n)); /* Start the binary search from 0 to n */
+	return (find_sqrt(n, 0)); /* Start the binary search from 0 to n */
 }
 
