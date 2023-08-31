@@ -8,13 +8,10 @@
  */
 int _strlen(char *s)
 {
-	int length = 0;
-
-	while (s[length] != '\0')
-	{
-		length++;
-	}
-	return (length);
+	if (*s == '\0')
+		return (0);
+	else
+		return (1 + _strlen(s + 1));
 }
 
 /**
@@ -35,10 +32,12 @@ int check_palindrome(char *s, int start, int end)
 	{
 		return (1); /* All characters checked, palindrome found */
 	}
+
 	if (s[start] != s[end])
 	{
 		return (0); /* Characters don't match, not a palindrome */
 	}
+
 	return (check_palindrome(s, start + 1, end - 1)); /* Check next characters */
 }
 
