@@ -1,37 +1,60 @@
-#include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
- * multiply - Multiplies two numbers.
- * @num1: The first number.
- * @num2: The second number.
+ * _atoi - Converts a string to an integer.
+ * @s: The input string to be converted.
  *
- * Return: The result of the multiplication.
+ * Return: The integer value of the input string.
  */
-int multiply(int num1, int num2)
+int _atoi(char *s)
 {
-	return (num1 * num2);
+	int i = 0;
+	int result = 0;
+	int sign = 1;
+
+	if (s[0] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+
+	while (s[i] != '\0')
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			result = result * 10 + (s[i] - '0');
+		}
+		else
+		{
+			break;
+		}
+		i++;
+	}
+
+	return (sign * result);
 }
 
 /**
- * main - Entry point of the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of command-line argument strings.
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: 0 on success, 1 on failure.
+ * Return: 0 (Success), 1 (Error)
  */
 int main(int argc, char *argv[])
 {
-	int num1 = atoi(argv[1]);
-	int num2 = atoi(argv[2]);
-	int result = multiply(num1, num2);
+	int result, num1, num2;
 
-	if (argc != 3)
+	if (argc < 3 || argc > 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
+
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argv[2]);
+	result = num1 * num2;
 
 	printf("%d\n", result);
 
