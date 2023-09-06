@@ -12,12 +12,13 @@ char *_strdup(char *str)
 	char *duplicate;
 	unsigned int length = 0;
 	unsigned int i;
-	
+
 	if (str == NULL)
+	{
 		return (NULL);
-
-
-	/* Calculate the length of the input string*/
+	}
+	
+	/* Calculate the length of input string*/
 	while (str[length] != '\0')
 	{
 		length++;
