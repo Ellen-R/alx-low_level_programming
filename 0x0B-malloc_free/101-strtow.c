@@ -9,7 +9,7 @@
  */
 int count(char *s)
 {
-	int in_word = 0, word_count =0;
+	int in_word = 0, word_count = 0;
 	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
