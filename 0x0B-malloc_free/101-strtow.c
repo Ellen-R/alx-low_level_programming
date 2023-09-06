@@ -35,7 +35,7 @@ int count_words(char *s)
  */
 char **strtow(char *str)
 {	char **word_array, *word;
-	int i, j, len = 0, word_count = 0, char_count = 0, in_word = 0;
+	unsigned int i, j, len = 0, word_count = 0, char_count = 0, in_word = 0;
 
 	while (str[len])
 		len++;
