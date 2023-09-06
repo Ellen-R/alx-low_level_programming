@@ -28,51 +28,51 @@ int count_words(char *s)
 }
 
 /**
- * strtow - Splits a string into words.
- * @str: The string to split.
+ * **strtow - splits a string into words
+ * @str: string to split
  *
- * Return: A pointer to an array of strings (Success) or NULL (Error).
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
  */
 char **strtow(char *str)
-{	char **word_array, *word;
-	int i, j, len = 0, word_count = 0, char_count = 0, in_word = 0;
+{
+	char **array_word, *temp_word;
+	int i, j = 0, length = 0, words, k = 0, start, end;
 
-	while (str[len])
-		len++;
-	word_count = count_words(str);
-	if (word_count == 0)
+	while (*(str + length))
+		length++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
-	word_array = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (word_array == NULL)
+
+	array_word = (char **) malloc(sizeof(char *) * (words + 1));
+	if (array_word == NULL)
 		return (NULL);
-	for (i = 0; i <= len; i++)
+
+	for (i = 0; i <= length; i++)
 	{
 		if (str[i] == ' ' || str[i] == '\0')
 		{
-			if (in_word)
-			{	word = (char *)malloc(sizeof(char) * (char_count + 1));
-				if (word == NULL)
-				{
-					while (--word_count >= 0)
-						free(word_array[word_count]);
-					free(word_array);
+			if (k)
+			{
+				end = i;
+				temp_word = (char *) malloc(sizeof(char) * (k + 1));
+				if (temp_word == NULL)
 					return (NULL);
-				}
-				for (j = 0; j < char_count; j++)
-					word[j] = str[i - char_count + j];
-				word[char_count] = '\0';
-				word_array[word_count++] = word;
-				in_word = 0;
-				char_count = 0;
+				while (start < end)
+					*temp_word++ = str[start++];
+				*temp_word = '\0';
+				array_word[k] = temp_word - k;
+				j++;
+				k = 0;
 			}
 		}
-		else if (!in_word)
-		{	in_word = 1;
-			char_count = 1;
-		}
-		else
-			char_count++;
+		else if (k++ == 0)
+			start = i;
 	}
-	word_array[word_count] = NULL;
-	return (word_array);
+
+	array_word[j] = NULL;
+
+	return (array_word);
 }
+
