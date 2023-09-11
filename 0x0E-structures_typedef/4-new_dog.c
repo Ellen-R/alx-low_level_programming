@@ -5,27 +5,27 @@
 /**
  * _strdup - Duplicates a string
  * @str: The string to duplicate
- *@dup_str: pointer to the buffer in which we copy the string
+ *
  * Return: A pointer to the newly allocated duplicated string.
  *         NULL if memory allocation fails or str is NULL.
  */
-char *_strdup(char *str, char *dup_str)
+char *_strdup(char *str)
 {
 	char *dup_str;
 	int i, len;
 
 	len = 0;
 
-	/*if (str == NULL)*/
-		/*return (NULL);*/
+	if (str == NULL)
+		return (NULL);
 
 	while (str[len] != '\0')
 		len++;
 
-	/*dup_str = malloc((len + 1) * sizeof(char));*/
+	dup_str = malloc((len + 1) * sizeof(char));
 
-	/*if (dup_str == NULL)*/
-		/*return (NULL);*/
+	if (dup_str == NULL)
+		return (NULL);
 
 	for (i = 0; i < len; i++)
 		dup_str[i] = str[i];
