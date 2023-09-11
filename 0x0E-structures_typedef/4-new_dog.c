@@ -29,7 +29,6 @@ char *_strdup(char *str, char *dup_str)
 
 	for (i = 0; i < len; i++)
 		dup_str[i] = str[i];
-	
 	dup_str[i] = '\0';
 	return (dup_str);
 }
@@ -48,7 +47,7 @@ char *_strdup(char *str, char *dup_str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
-	
+
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
