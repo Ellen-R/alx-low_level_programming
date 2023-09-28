@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * flip_bits - Calculates the number of bits needed to flip between two numbers.
+ * flip_bits - Calculates the number of bits needed to flip between two number
  * @n: The first unsigned long integer.
  * @m: The second unsigned long integer.
  *
